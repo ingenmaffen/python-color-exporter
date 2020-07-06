@@ -13,11 +13,15 @@ hexaColor.set(color)
 rgbColor = StringVar()
 rgbColor.set(str(red) + ',' + str(green) + ',' + str(blue))
 
-# canvas = Canvas(root, bg=color, width=100, height=100).pack(side=RIGHT, padx=10, pady=20)
+canvas = Canvas(root, bg=color, width=100, height=100)
+canvas.pack(side=RIGHT, padx=10, pady=20)
 
 def hexatorgb(*args):
     hexOrder = '0123456789abcdef'
     hexValue = hexaColor.get()
+
+    global canvas
+    canvas.configure(bg=hexValue)
 
     if not(hexValue[0] == '#' and len(hexValue) < 7):
         global red
